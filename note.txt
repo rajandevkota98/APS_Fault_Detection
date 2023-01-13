@@ -1,0 +1,19 @@
+#for data validation number columns, their datatypes, and the namme of columns are very important.
+#we want to check that test.csv, train.csv and the base dataset are in same distribution
+#we use ks test from scipy to validate
+#Anamoly is my dataset
+    #    high null values
+    #    outliers
+    #    categorical and numerical matching 
+    # when levels are changed
+
+
+
+    #concept drift --> the correlation between the target and dependent feature got changed
+    #data drrift --> the distribution of the data got changed
+
+
+    #p value less than 0.05 --> we reject null hypothesis of the ks test -->
+    #Ho == data are uniformly distributed
+    #H1== data are not uniformly distributed
+
