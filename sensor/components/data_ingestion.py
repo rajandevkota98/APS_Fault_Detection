@@ -38,7 +38,7 @@ class DataIngestion:
 
             #save df in feature store folder
             logging.info("Save df to feature store folder")
-            df.to_csv(path_or_buff = data_ingestion_config.feature_store_file_path, index = False , header = True)
+            df.to_csv(path_or_buf = self.data_ingestion_config.feature_store_file_path, index = False , header = True)
             
 
             logging.info("Train test split")

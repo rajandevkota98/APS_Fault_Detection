@@ -1,0 +1,16 @@
+[ 2023-01-12 21:27:34,365 ] 23 root - INFO -Exporting collection data as pandas dataframe
+[ 2023-01-12 21:27:34,365 ] 18 root - INFO -Reading data from database: aps and collection: sensor
+[ 2023-01-12 21:27:37,214 ] 20 root - INFO -Found columns: Index(['_id', 'class', 'aa_000', 'ab_000', 'ac_000', 'ad_000', 'ae_000',
+       'af_000', 'ag_000', 'ag_001',
+       ...
+       'ee_002', 'ee_003', 'ee_004', 'ee_005', 'ee_006', 'ee_007', 'ee_008',
+       'ee_009', 'ef_000', 'eg_000'],
+      dtype='object', length=172)
+[ 2023-01-12 21:27:37,214 ] 22 root - INFO -Dropping column: _id 
+[ 2023-01-12 21:27:37,416 ] 24 root - INFO -Row and columns in df: (53259, 171)
+[ 2023-01-12 21:27:37,416 ] 29 root - INFO -Save data in feature store
+[ 2023-01-12 21:27:37,815 ] 34 root - INFO -Create feature store folder if not available
+[ 2023-01-12 21:27:37,817 ] 40 root - INFO -Save df to feature store folder
+[ 2023-01-12 21:27:39,594 ] 44 root - INFO -Train test split
+[ 2023-01-12 21:27:41,838 ] 58 root - INFO -logging artifact
+[ 2023-01-12 21:27:41,838 ] 64 root - INFO -Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='/home/rajan/python/APS_Fault_Detection/artifact/01122023__212734/data_ingestion/feature_store/sensor.csv', train_file_path='/home/rajan/python/APS_Fault_Detection/artifact/01122023__212734/data_ingestion/train_file', test_file_path='/home/rajan/python/APS_Fault_Detection/artifact/01122023__212734/data_ingestion/test_dir')

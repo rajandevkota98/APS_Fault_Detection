@@ -21,6 +21,7 @@ def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataF
         if "_id" in df.columns:
             logging.info(f"Dropping column: _id ")
             df = df.drop("_id",axis=1)
+            df.drop_duplicates(inplace=True)
         logging.info(f"Row and columns in df: {df.shape}")
         return df
     except Exception as e:
