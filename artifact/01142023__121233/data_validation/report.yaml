@@ -1,0 +1,82 @@
+dropped_columns train: !!python/object/apply:pandas.core.indexes.base._new_Index
+- &id001 !!python/name:pandas.core.indexes.base.Index ''
+- data: !!python/object/apply:numpy.core.multiarray._reconstruct
+    args:
+    - &id002 !!python/name:numpy.ndarray ''
+    - !!python/tuple
+      - 0
+    - !!binary |
+      Yg==
+    state: !!python/tuple
+    - 1
+    - !!python/tuple
+      - 7
+    - &id003 !!python/object/apply:numpy.dtype
+      args:
+      - O8
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - '|'
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 63
+    - false
+    - - ab_000
+      - bn_000
+      - bo_000
+      - bp_000
+      - bq_000
+      - br_000
+      - cr_000
+  name: null
+dropped_columnsbase: !!python/object/apply:pandas.core.indexes.base._new_Index
+- *id001
+- data: !!python/object/apply:numpy.core.multiarray._reconstruct
+    args:
+    - *id002
+    - !!python/tuple
+      - 0
+    - !!binary |
+      Yg==
+    state: !!python/tuple
+    - 1
+    - !!python/tuple
+      - 7
+    - *id003
+    - false
+    - - ab_000
+      - bn_000
+      - bo_000
+      - bp_000
+      - bq_000
+      - br_000
+      - cr_000
+  name: null
+dropped_columnstest: !!python/object/apply:pandas.core.indexes.base._new_Index
+- *id001
+- data: !!python/object/apply:numpy.core.multiarray._reconstruct
+    args:
+    - *id002
+    - !!python/tuple
+      - 0
+    - !!binary |
+      Yg==
+    state: !!python/tuple
+    - 1
+    - !!python/tuple
+      - 7
+    - *id003
+    - false
+    - - ab_000
+      - bn_000
+      - bo_000
+      - bp_000
+      - bq_000
+      - br_000
+      - cr_000
+  name: null

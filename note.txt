@@ -11,6 +11,7 @@
 
     #concept drift --> the correlation between the target and dependent feature got changed
     #data drrift --> the distribution of the data got changed
+    
 
 
     #p value less than 0.05 --> we reject null hypothesis of the ks test -->

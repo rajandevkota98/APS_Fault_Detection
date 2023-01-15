@@ -12,7 +12,7 @@ sensor.egg-info/top_level.txt
 sensor/components/__init__.py
 sensor/components/data_ingestion.py
 sensor/components/data_transformation.py
-sensor/components/data_validation..py
+sensor/components/data_validation.py
 sensor/components/model_evaluation.py
 sensor/components/model_pusher.py
 sensor/components/model_trainer.py
