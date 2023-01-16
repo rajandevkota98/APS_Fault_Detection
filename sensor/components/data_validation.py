@@ -5,7 +5,7 @@ import os, sys
 import pandas as pd
 from scipy.stats import ks_2samp
 from typing import Optional
-from sensor.utils import write_yaml_file
+from sensor.utils import write_yaml_file, convert_column_float
 import numpy as np
 
 
@@ -33,6 +33,7 @@ class DataValidation:
         else it will return a null value 
         """
         try:
+            threshold = self.data_validation_config.missing_threshold
             logging.info("dropping missing values columns")
             drop_column_names = []
             null_report = df.isna().sum()/df.shape[0]
@@ -40,8 +41,8 @@ class DataValidation:
             #selecting the columns which contains more than 30% null values
             drop_column_names = null_report[null_report> self.data_validation_config.missing_threshold].index
 
-
-            self.validation_error["dropped_columns" + report_key_name] = drop_column_names
+            logging.info(f"Columns to drop: {list(drop_column_names)}")
+            self.validation_error[report_key_name] = list(drop_column_names)
             df.drop(list(drop_column_names), axis = 1, inplace= True)
 
             if len(df.columns) ==0:
@@ -59,6 +60,7 @@ class DataValidation:
 
             for base_column in base_columns:
                 if base_column not in current_columns:
+                    logging.info(f"COlumsn:[{base_column} is not available.]")
                     missing_columns.append(base_columns)
             if len(missing_columns) >0:
                 self.validation_error["missing columsn" + report_key_name] = missing_columns
@@ -75,6 +77,7 @@ class DataValidation:
 
             for base_column in base_columns:
                 base_data, current_data = base_df[base_column],current_df[base_column]
+                logging.info(f"Hypothesis {base_column}: {base_data.dtype}, {current_data.dtype} ")
                 is_same_distribution = ks_2samp(base_data,current_data)
 
 
@@ -105,7 +108,6 @@ class DataValidation:
             base_df.replace({"na":np.NaN}, inplace= True)
             base_df = self.drop_missing_values_columns(df=base_df,report_key_name= "base")
 
-
             #reading the train file file path
             train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
             train_df = self.drop_missing_values_columns(df = train_df, report_key_name=" train")
@@ -114,6 +116,14 @@ class DataValidation:
             #reading test file path
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
             test_df = self.drop_missing_values_columns(df = test_df, report_key_name="test")
+
+
+            exclude_column = ["class"]
+            convert_column_float(df=base_df,excluded_column=exclude_column)
+            convert_column_float(df=train_df,excluded_column=exclude_column)
+            convert_column_float(df=test_df,excluded_column=exclude_column)
+
+
 
             train_status = self.is_required_columns_exists(base_df= base_df, current_df= train_df, report_key_name="train")
             test_status = self.is_required_columns_exists(base_df= base_df, current_df= test_df, report_key_name="test")

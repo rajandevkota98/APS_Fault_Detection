@@ -1,2 +1,0 @@
-[ 2023-01-13 09:38:37,305 ] 23 root - INFO -Exporting collection data as pandas dataframe
-[ 2023-01-13 09:38:37,305 ] 18 root - INFO -Reading data from database: aps and collection: sensor

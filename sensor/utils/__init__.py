@@ -39,3 +39,12 @@ def write_yaml_file(file_path, data:dict):
     except Exception as e:
         raise SensorException(e, sys)
     
+
+def convert_column_float(df:pd.DataFrame, excluded_column:list)->pd.DataFrame:
+    try:
+        for column in df.columns:
+            if column not in excluded_column:
+                df[column] = df[column].astype(float)
+        return df
+    except Exception as e:
+        raise SensorException(e,sys)
