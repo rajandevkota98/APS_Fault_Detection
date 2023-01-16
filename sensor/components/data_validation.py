@@ -7,7 +7,7 @@ from scipy.stats import ks_2samp
 from typing import Optional
 from sensor.utils import write_yaml_file, convert_column_float
 import numpy as np
-
+from sensor.config import TARGET_COLUMN
 
 class DataValidation:
     def __init__(self, data_validation_config:config_entity.DataValidationConfig,data_ingestion_artifact: artifact_entity.DataIngestionArtifact):
@@ -118,7 +118,7 @@ class DataValidation:
             test_df = self.drop_missing_values_columns(df = test_df, report_key_name="test")
 
 
-            exclude_column = ["class"]
+            exclude_column = TARGET_COLUMN
             convert_column_float(df=base_df,excluded_column=exclude_column)
             convert_column_float(df=train_df,excluded_column=exclude_column)
             convert_column_float(df=test_df,excluded_column=exclude_column)
